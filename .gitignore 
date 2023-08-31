@@ -47,3 +47,6 @@ target/
 *.cache
 *.project
 *.settings
+
+# database
+db.sqlite3
