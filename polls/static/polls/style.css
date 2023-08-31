@@ -1,7 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Barlow+Condensed&family=Caveat&family=Mulish&family=Nunito&family=Pacifico&family=Tilt+Prism&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+}
+
 li a {
-    color: green;
+    color: #952323;
 }
 
 body {
-    background: #ffffff
+    background: white url("images/background.jpg") no-repeat;
+    background-size: cover;
+}
+
+.polls{
+    background: white url("images/background2.jpeg") no-repeat;
+    background-size: cover;
 }
