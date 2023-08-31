@@ -2,19 +2,33 @@
 *{
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
-    font-size: 16px;
 }
 
 li a {
-    color: #952323;
+    color: #FFC436;
+    font-size: 17px;
 }
 
 body {
-    background: white url("images/background.jpg") no-repeat;
+    background: url("images/background4.jpg") no-repeat;
     background-size: cover;
+    font-size: 20px;
 }
 
 .polls{
-    background: white url("images/background2.jpeg") no-repeat;
+    background: url("images/background2.jpeg") no-repeat;
     background-size: cover;
+    color: #337CCF;
+}
+
+.result {
+    background: url("images/background.jpg") no-repeat;
+    background-size: cover;
+    color: #1450A3;
+    font-size: 20px;
+}
+
+.ku-poll{
+    font-size: 50px;
+    color: #FFC436;
 }
