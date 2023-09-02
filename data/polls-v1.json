@@ -4,7 +4,7 @@
   "pk": 3,
   "fields": {
     "question_text": "What's your favorite genre of music?",
-    "pub_date": "2023-08-31T08:29:43.479Z"
+    "pub_date": "2023-08-31T03:24:15Z"
   }
 },
 {
@@ -12,7 +12,7 @@
   "pk": 4,
   "fields": {
     "question_text": "Which is your preferred vacation destination?",
-    "pub_date": "2023-08-31T08:54:56.429Z"
+    "pub_date": "2023-08-31T03:24:05Z"
   }
 },
 {
@@ -21,7 +21,7 @@
   "fields": {
     "question": 3,
     "choice_text": "Rock",
-    "votes": 0
+    "votes": 1
   }
 },
 {
@@ -39,7 +39,7 @@
   "fields": {
     "question": 3,
     "choice_text": "Hip-hop/Rap",
-    "votes": 1
+    "votes": 2
   }
 },
 {
@@ -66,7 +66,7 @@
   "fields": {
     "question": 4,
     "choice_text": "Beach resort",
-    "votes": 2
+    "votes": 3
   }
 },
 {
@@ -75,7 +75,7 @@
   "fields": {
     "question": 4,
     "choice_text": "Mountain cabin",
-    "votes": 0
+    "votes": 4
   }
 },
 {
@@ -93,7 +93,7 @@
   "fields": {
     "question": 4,
     "choice_text": "Adventure wilderness",
-    "votes": 0
+    "votes": 1
   }
 },
 {
