@@ -19,6 +19,7 @@ body {
     background: url("images/background2.jpeg") no-repeat;
     background-size: cover;
     color: #337CCF;
+    font-size: 20px;
 }
 
 .result {
