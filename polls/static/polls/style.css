@@ -1,35 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Barlow+Condensed&family=Caveat&family=Mulish&family=Nunito&family=Pacifico&family=Tilt+Prism&display=swap');
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Barlow+Condensed&family=Caveat&family=Montserrat&family=Mulish&family=Nunito&family=Pacifico&family=Tilt+Prism&display=swap');
+
 *{
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
 }
 
-li a {
+body.polls {
+    background: url("images/bg.jpeg") no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+form.polls{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
     color: #FFC436;
-    font-size: 17px;
 }
 
-body {
-    background: url("images/background4.jpg") no-repeat;
-    background-size: cover;
-    font-size: 20px;
+/* Style the legend */
+legend {
+    font-size: 1.2em;
+    margin-bottom: 15px;
 }
 
-.polls{
-    background: url("images/background2.jpeg") no-repeat;
-    background-size: cover;
-    color: #337CCF;
-    font-size: 20px;
+/* Style the fieldset */
+fieldset.polls{
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
 }
 
-.result {
-    background: url("images/background.jpg") no-repeat;
+fieldset.index{
+    border: 2px solid #FFC436;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Style labels */
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Style radio buttons */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    margin-top: 10px;
+    background-color: #337CCF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Style the submit button on hover */
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+body.index {
+    background: url("images/bg5.jpg") no-repeat center center fixed;
     background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+h1.detail {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1.index {
+    text-align: center;
+    margin-top: 50px;
+    color: #0056b3;
+}
+
+form.index{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
     color: #1450A3;
-    font-size: 20px;
+    transition: color 0.3s ease;
 }
 
-.ku-poll{
-    font-size: 50px;
+a:hover {
+    color: #5B9A8B;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #FFC436;
+}
+
+body.results {
+    background: url("images/bg6.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+form.results{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    color: #0C356A;
+}
+
+h1.results {
+    text-align: center;
+    margin-top: 0px;
     color: #FFC436;
 }
