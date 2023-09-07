@@ -15,7 +15,8 @@ class Question(models.Model):
     """
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published', auto_now_add=False)
-    end_date = models.DateTimeField('date ended', null=True, blank=True, default=None)
+    end_date = models.DateTimeField('date ended', null=True, blank=True,
+                                    default=None)
 
     @admin.display(
         boolean=True,
@@ -24,7 +25,8 @@ class Question(models.Model):
     )
     def is_published(self):
         """
-        The function checks if the publication date of an object is in the past.
+        The function checks if the publication date of an object is in
+        the past.
         :return: a boolean value.
         """
         return self.pub_date <= timezone.now()
@@ -41,7 +43,8 @@ class Question(models.Model):
 
     def was_published_recently(self):
         """
-        The function checks if the publication date of an object is within the last 24 hours.
+        The function checks if the publication date of an object is within the
+        last 24 hours.
         :return: a boolean value.
         """
         now = timezone.now()

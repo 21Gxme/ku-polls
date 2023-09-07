@@ -7,8 +7,8 @@ from .models import Question
 
 def create_question(question_text, days_offset, days_end=None):
     """
-    The function creates a question object with a specified question text and publication date, and
-    optionally an end date.
+    The function creates a question object with a specified question text
+    and publication date, and optionally an end date.
 
     :param question_text
     :param days_offset
@@ -36,7 +36,8 @@ class QuestionModelTests(TestCase):
 
     def test_old_question(self):
         """
-        The function tests if a question was published recently by checking its publish date.
+        The function tests if a question was published recently by checking
+        its publish date.
         """
         publish_date = timezone.now() - datetime.timedelta(days=1, seconds=1)
         old_question = Question(pub_date=publish_date)
@@ -61,14 +62,16 @@ class QuestionModelTests(TestCase):
 
     def test_unpublished_question(self):
         """
-        The function tests whether an unpublished question is correctly identified as not published.
+        The function tests whether an unpublished question is correctly
+        identified as not published.
         """
         question = create_question("", 4)
         self.assertIs(question.is_published(), False)
 
     def test_can_vote_on_voting_period(self):
         """
-        The function tests whether a question can be voted on during a voting period.
+        The function tests whether a question can be voted on during
+        a voting period.
         """
         question_with_end_date = create_question("", 0, 10)
         self.assertIs(question_with_end_date.can_vote(), True)
@@ -78,14 +81,16 @@ class QuestionModelTests(TestCase):
 
     def test_can_not_vote_after_end_date(self):
         """
-        The function tests whether a question can be voted on after its end date has passed.
+        The function tests whether a question can be voted on after its
+        end date has passed.
         """
         question = create_question("", -10, -1)
         self.assertIs(question.can_vote(), False)
 
     def test_can_not_vote_on_unpublished_poll(self):
         """
-        The function tests whether a question can be voted on if it is unpublished.
+        The function tests whether a question can be voted on if
+        it is unpublished.
         """
         question = create_question("", 2)
         self.assertIs(question.can_vote(), False)
@@ -94,8 +99,9 @@ class QuestionModelTests(TestCase):
 class QuestionIndexViewTests(TestCase):
     def test_no_question(self):
         """
-        The function tests if there are no questions available in the polls and verifies that the
-        response status code is 200, the response contains the message "No polls are available", and the
+        The function tests if there are no questions available in the polls
+        and verifies that the response status code is 200, the response
+        contains the message "No polls are available", and the
         latest_question_list is empty.
         """
         response = self.client.get(reverse("polls:index"))
@@ -105,7 +111,8 @@ class QuestionIndexViewTests(TestCase):
 
     def test_past_question(self):
         """
-        The function tests if a past question is displayed in the latest question list.
+        The function tests if a past question is displayed in the latest
+        question list.
         """
         question = create_question(question_text="Past question",
                                    days_offset=-30)
@@ -115,7 +122,8 @@ class QuestionIndexViewTests(TestCase):
 
     def test_future_question(self):
         """
-        The function tests if a future question is displayed correctly on the index page.
+        The function tests if a future question is displayed correctly on
+        the index page.
         """
         create_question(question_text="Future question.", days_offset=30)
         response = self.client.get(reverse('polls:index'))
@@ -124,7 +132,8 @@ class QuestionIndexViewTests(TestCase):
 
     def test_future_and_past_question(self):
         """
-        The function tests that only past questions are displayed on the index page.
+        The function tests that only past questions are displayed on the
+        index page.
         """
         past_question = create_question(question_text="Past question.",
                                         days_offset=-30)
@@ -135,8 +144,8 @@ class QuestionIndexViewTests(TestCase):
 
     def test_two_past_questions(self):
         """
-        The function tests if the latest question list is displayed correctly in reverse chronological
-        order.
+        The function tests if the latest question list is displayed correctly
+        in reverse chronological order.
         """
         question1 = create_question(question_text="Past question 1.",
                                     days_offset=-30)
@@ -160,7 +169,8 @@ class QuestionDetailViewTests(TestCase):
 
     def test_past_question(self):
         """
-        The function tests if a past question is displayed correctly on the detail page.
+        The function tests if a past question is displayed correctly on the
+        detail page.
         """
         past_question = create_question(question_text='Past Question.',
                                         days_offset=-5)
@@ -172,7 +182,8 @@ class QuestionDetailViewTests(TestCase):
 class QuestionResultsViewTests(TestCase):
     def test_results_view_for_past_question(self):
         """
-        The function tests the view for displaying the results of a past question.
+        The function tests the view for displaying the results of a past
+        question.
         """
         past_question = create_question("Past Question", days_offset=-5)
         url = reverse('polls:results', args=(past_question.id,))
@@ -182,7 +193,8 @@ class QuestionResultsViewTests(TestCase):
 
     def test_results_view_for_future_question(self):
         """
-        The function tests the view for displaying the results of a future question.
+        The function tests the view for displaying the results of a future
+        question.
         """
         future_question = create_question("Future Question", days_offset=5)
         url = reverse('polls:results', args=(future_question.id,))
