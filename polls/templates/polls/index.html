@@ -8,19 +8,36 @@
     <title>Ku Polls</title>
 </head>
 <body class="index">
-<form class="index">
-<fieldset class="index">
-    <legend><h1 class="index">Ku Polls</h1></legend>
-    {% if latest_question_list %}
-        <ul>
-        {% for question in latest_question_list %}
-            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li><br>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No polls are available.</p>
-    {% endif %}
-</fieldset>
-</form>
+        <form class="index">
+            <fieldset class="index">
+                <legend><h1 class="index">Ku Polls</h1></legend>
+                <div class="container">
+                {% if latest_question_list %}
+                    <ul>
+                        {% for question in latest_question_list %}
+                            <div class="index">
+                                <a class="no-hover">{{ question.question_text }}</a><br>
+                                <div class="index2">
+                                    <a class="button-views" href="{% url 'polls:detail' question.id %}">vote</a>
+                                    <a class="button-results" href="{% url 'polls:results' question.id %}">Results</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No polls are available.</p>
+                {% endif %}
+                </div>
+            </fieldset>
+            {% if messages %}
+                <ul>
+                <div class="error">
+                    {% for message in messages %}
+                        <li style="color: #BB2525" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+            {% endif %}
+                </div>
+                </ul>
+        </form>
 </body>
 </html>

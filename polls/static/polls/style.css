@@ -6,93 +6,6 @@
     font-family: 'Mulish', sans-serif;
 }
 
-body.polls {
-    background: url("images/bg.jpeg") no-repeat;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-}
-
-form.polls{
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    color: #FFC436;
-}
-
-/* Style the legend */
-legend {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-}
-
-/* Style the fieldset */
-fieldset.polls{
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-fieldset.index{
-    border: 2px solid #FFC436;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-/* Style labels */
-label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-/* Style radio buttons */
-input[type="radio"] {
-    margin-right: 5px;
-}
-
-/* Style the submit button */
-input[type="submit"] {
-    margin-top: 10px;
-    background-color: #337CCF;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Style the submit button on hover */
-input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-body.index {
-    background: url("images/bg5.jpg") no-repeat center center fixed;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-}
-
-h1.detail {
-    text-align: center;
-    margin-top: 50px;
-}
-
-h1.index {
-    text-align: center;
-    margin-top: 50px;
-    color: #0056b3;
-}
-
-form.index{
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-}
-
 ul {
     list-style-type: none;
     padding: 0;
@@ -110,15 +23,186 @@ a {
 }
 
 a:hover {
-    color: #5B9A8B;
+    color: #C4DFDF;
 }
 
 p {
     text-align: center;
     font-size: 1.2em;
+}
+
+/* detail */
+body.detail {
+    background: url("images/bg.jpeg") no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/*.button-home{*/
+/*    background-color: #337CCF;*/
+/*    color: #fff;*/
+/*    padding: 5px 5px;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*    transition: background-color;*/
+/*}*/
+
+h1.detail {
+    text-align: center;
+    margin-top: 50px;
+}
+
+legend {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+form.detail{
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
     color: #FFC436;
 }
 
+fieldset.detail{
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+div.error-vote {
+    text-align: center;
+    color: #F94C10;
+    animation: shake 0.5s ease-in-out infinite; /* Add animation */
+}
+
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    background-color: #337CCF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+input[type="button"] {
+    margin-top: 10px;
+    background-color: #337CCF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+/* index */
+a.no-hover:hover {
+    color: #1450A3;
+}
+.button-views{
+    background-color: #337CCF;
+    color: #fff;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color;
+}
+
+.button-results{
+    background-color: #337CCF;
+    color: #fff;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color;
+}
+body.index {
+    background: url("images/bg5.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+div.index {
+    border: 2px solid #176B87;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+    background: #EEEEEE;
+}
+div.index2{
+    margin-top: 20px;
+}
+
+div .error {
+    border: 2px solid #176B87;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 5px;
+    background: #EEEEEE;
+    animation: shake 0.5s ease-in-out infinite; /* Add animation */
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(5px); }
+}
+
+
+fieldset.index{
+    border: 2px solid #176B87;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h1.index {
+    text-align: center;
+    margin-top: 50px;
+    color: #176B87;
+}
+
+form.index{
+    max-width: 400px; /* Set a default minimum width */
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.container {
+    max-height: 63vh; /* Set the maximum height to the viewport height */
+    overflow-y: auto; /* Add vertical scrollbar if content overflows */
+}
+
+
+/* results */
 body.results {
     background: url("images/bg6.jpg") no-repeat center center fixed;
     background-size: cover;
@@ -126,16 +210,38 @@ body.results {
     padding: 0;
 }
 
-form.results{
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    color: #0C356A;
-}
-
 h1.results {
     text-align: center;
     margin-top: 0px;
-    color: #FFC436;
+    color: #A2C579;
+}
+
+form.results{
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #016A70;
+}
+
+fieldset.results{
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.button-home{
+    background-color: #337CCF;
+    color: #fff;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color;
+}
+
+div.results{
+    border: 2px solid #176B87;
+    border-radius: 5px;
+    margin-top: 5px;
+    background: #FFFFDD;
 }

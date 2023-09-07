@@ -9,17 +9,18 @@
 </head>
 <body class="results">
 <form class="results">
-<fieldset>
-    <header>
-        <h1 class="results">{{ question.question_text }}</h1>
-    </header>
+<fieldset class="results">
+        <legend><h1 class="results">{{ question.question_text }}</h1></legend>
     <main>
         <ul>
             {% for choice in question.choice_set.all %}
+                <div class="results">
                 <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+                </div>
             {% endfor %}
         </ul>
-        <a class="vote-again" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+        <a class="button-home" href="{% url 'polls:index' %}">Back to home</a>
+        {#        <a class="vote-again" href="{% url 'polls:detail' question.id %}">Vote again?</a><br>#}
     </main>
 </fieldset>
 </form>
