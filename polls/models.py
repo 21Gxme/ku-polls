@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.contrib import admin
 
 
 class Question(models.Model):
@@ -10,13 +11,40 @@ class Question(models.Model):
     Attributes:
         question_text: The text of the question.
         pub_date: The date and time when the question was published.
+        end_date: The date and time when the question was ended.
     """
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField('date published', auto_now_add=False)
+    end_date = models.DateTimeField('date ended', null=True, blank=True,
+                                    default=None)
+
+    @admin.display(
+        boolean=True,
+        ordering="pub_date",
+        description="Published recently?",
+    )
+    def is_published(self):
+        """
+        The function checks if the publication date of an object is in
+        the past.
+        :return: a boolean value.
+        """
+        return self.pub_date <= timezone.now()
+
+    def can_vote(self):
+        """
+        The function checks if a voting event is currently open for voting.
+        :return: a boolean value.
+        """
+        if self.end_date is None:
+            return self.is_published()
+        else:
+            return self.is_published() and self.end_date >= timezone.now()
 
     def was_published_recently(self):
         """
-        The function checks if the publication date of an object is within the last 24 hours.
+        The function checks if the publication date of an object is within the
+        last 24 hours.
         :return: a boolean value.
         """
         now = timezone.now()
