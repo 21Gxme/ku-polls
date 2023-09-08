@@ -6,36 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'polls/style.css' %}">
     <title>Ku Polls</title>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const errorDiv = document.getElementById("error");
+        if (errorDiv) {
+            setTimeout(function () {
+                errorDiv.style.display = "none";
+            }, 2000); // 2000 milliseconds (2 seconds)
+        }
+    });
+</script>
+
 </head>
 <body class="index">
         <form class="index">
             <fieldset class="index">
-                <legend><h1 class="index">Ku Polls</h1></legend>
-                <div class="container">
-                {% if latest_question_list %}
-                    <ul>
-                        {% for question in latest_question_list %}
-                            <div class="index">
-                                <a class="no-hover">{{ question.question_text }}</a><br>
-                                <div class="index2">
-                                    <a class="button-views" href="{% url 'polls:detail' question.id %}">vote</a>
-                                    <a class="button-results" href="{% url 'polls:results' question.id %}">Results</a>
+                <legend><img src="{% static 'polls/images/KU.png' %}" alt="KU" class="ku"></legend>
+                    <div class="container">
+                    {% if latest_question_list %}
+                        <ul>
+                            {% for question in latest_question_list %}
+                                <div class="index">
+                                    <a class="no-hover">{{ question.question_text }}</a><br>
+                                    <div class="index2">
+                                        <a class="button-views" href="{% url 'polls:detail' question.id %}">Vote</a>
+                                        <a class="button-results" href="{% url 'polls:results' question.id %}">Results</a>
+                                    </div>
                                 </div>
-                            </div>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>No polls are available.</p>
-                {% endif %}
-                </div>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No polls are available.</p>
+                    {% endif %}
+                    </div>
             </fieldset>
-            {% if messages %}
-                <ul>
-                <div class="error">
-                    {% for message in messages %}
-                        <li style="color: #BB2525" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-            {% endif %}
+                {% if messages %}
+                    <ul>
+                    <div id="error" class="error" style="color: #C70039">
+                        {% for message in messages %}
+                            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </div>
+                    </ul>
+                {% endif %}
                 </div>
                 </ul>
         </form>

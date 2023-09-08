@@ -156,7 +156,7 @@ div.index {
     background: #EEEEEE;
 }
 div.index2{
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 div .error {
@@ -165,7 +165,7 @@ div .error {
     border-radius: 5px;
     margin-top: 5px;
     background: #EEEEEE;
-    animation: shake 0.5s ease-in-out infinite; /* Add animation */
+    animation: shake 2s ease-in-out infinite; /* Add animation */
 }
 
 @keyframes shake {
@@ -175,7 +175,6 @@ div .error {
     75% { transform: translateX(-5px); }
     100% { transform: translateX(5px); }
 }
-
 
 fieldset.index{
     border: 2px solid #176B87;
@@ -197,8 +196,14 @@ form.index{
 }
 
 .container {
-    max-height: 63vh; /* Set the maximum height to the viewport height */
+    max-height: 61vh; /* Set the maximum height to the viewport height */
     overflow-y: auto; /* Add vertical scrollbar if content overflows */
+}
+
+.ku{
+    width: 200px;
+    height: 100px;
+
 }
 
 
@@ -213,20 +218,20 @@ body.results {
 h1.results {
     text-align: center;
     margin-top: 0px;
-    color: #A2C579;
+    color: #F8DE22;
 }
 
 form.results{
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 20px;
     color: #016A70;
 }
 
 fieldset.results{
-    border: 1px solid #ddd;
+    border: 2px solid #176B87;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 12px;
 }
 
 .button-home{
@@ -244,4 +249,23 @@ div.results{
     border-radius: 5px;
     margin-top: 5px;
     background: #FFFFDD;
+}
+
+#totalVotes {
+    display: inline-block; /* Make it inline-block to fit with the text */
+    /*text-align: center;*/
+    font-family: 'Mulish', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    padding: 5px 10px; /* Add padding to create space around the text */
+    border: 2px solid #176B87;
+    border-radius: 5px;
+    background: #EEEEEE;
+    color: #016A70;
+    align-items: center;
+}
+
+#buttonContainer {
+    /*text-align: center;*/
+    margin-top: 20px;
 }

@@ -5,24 +5,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Poll Results</title>
+    <style>
+        /* Define the fixed size for the canvas */
+        #pollResultsChart {
+            width: 400px; /* Adjust to your desired width */
+            height: 400px; /* Adjust to your desired height */
+            margin: 0 auto; /* Center the canvas horizontally */
+            display: block; /* Ensure it's a block element for margin:auto to work */
+        }
+    </style>
 </head>
 <body class="results">
-<form class="results">
-<fieldset class="results">
-        <legend><h1 class="results">{{ question.question_text }}</h1></legend>
-    <main>
-        <ul>
-            {% for choice in question.choice_set.all %}
-                <div class="results">
-                <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    <form class="results">
+        <fieldset class="results">
+            <legend><h1 class="results">{{ question.question_text }}</h1></legend>
+            <main>
+                <canvas id="pollResultsChart"></canvas>
+                <div id="totalVotes"></div>
+                <div id="buttonContainer">
+                    <a class="button-home" href="{% url 'polls:index' %}">Back to home</a>
                 </div>
-            {% endfor %}
-        </ul>
-        <a class="button-home" href="{% url 'polls:index' %}">Back to home</a>
-        {#        <a class="vote-again" href="{% url 'polls:detail' question.id %}">Vote again?</a><br>#}
-    </main>
-</fieldset>
-</form>
+            </main>
+        </fieldset>
+    </form>
+
+<script>
+    // Get the poll data from Django template variables
+    var labels = [{% for choice in question.choice_set.all %}"{{ choice.choice_text }}",{% endfor %}];
+    var votes = [{% for choice in question.choice_set.all %}{{ choice.votes }},{% endfor %}];
+
+    // Calculate the total votes
+    var totalVotes = votes.reduce((a, b) => a + b, 0);
+
+    // Update the labels to include vote count and total vote count
+    for (var i = 0; i < labels.length; i++) {
+        labels[i] += ` (${votes[i]} votes)`;
+    }
+
+    // Display the total vote count
+    document.getElementById('totalVotes').textContent = `Total Votes: ${totalVotes}`;
+
+    var pollData = {
+        labels: labels,
+        datasets: [{
+            data: votes,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)'
+                // Add more colors as needed
+            ],
+        }],
+    };
+
+    // Get the canvas element
+    var ctx = document.getElementById('pollResultsChart').getContext('2d');
+
+    // Create the pie chart with custom font for labels and text color set to #016A70
+    var pollResultsChart = new Chart(ctx, {
+        type: 'pie',
+        data: pollData,
+        options: {
+            responsive: false, // Disable responsive resizing
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            family: 'Mulish', // Set the font family for labels
+                        },
+                        color: '#016A70', // Set the font color
+                    },
+                },
+            },
+        },
+    });
+</script>
+
+
 </body>
 </html>
