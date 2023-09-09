@@ -43,8 +43,8 @@ class DetailView(generic.DetailView):
             return render(request, self.template_name, {"question": question})
         else:
             messages.error(request,
-                           f"Poll number {question.id} "
-                           f"is not available to vote")
+                           f"That poll is not available to vote.")
+
             return redirect("polls:index")
 
 
@@ -57,8 +57,7 @@ class ResultsView(generic.DetailView):
         is_future_question = not question.can_vote()
         if is_future_question:
             messages.error(request,
-                           f"Poll number {kwargs['pk']} "
-                           f"is scheduled for the future.")
+                           f"That poll is not available to vote.")
         return render(request, self.template_name, {"question": question,
                                                     "is_future_question":
                                                         is_future_question})
@@ -79,5 +78,3 @@ def vote(request, question_id):
         selected_choice.save()
         return HttpResponseRedirect(
             reverse('polls:results', args=(question.id,)))
-
-
