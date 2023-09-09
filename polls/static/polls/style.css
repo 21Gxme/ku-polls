@@ -71,7 +71,7 @@ label {
 
 div.error-vote {
     text-align: center;
-    color: #F94C10;
+    color: #952323;
     animation: shake 2s ease-in-out infinite; /* Add animation */
 }
 
@@ -93,6 +93,7 @@ input[type="radio"] {
 
 .button-vote:hover{
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 /* ====================================================== */
@@ -100,7 +101,6 @@ input[type="radio"] {
 a.no-hover:hover {
     color: #1450A3;
 }
-
 
 .button-views{
     background-color: #337CCF;
@@ -135,6 +135,7 @@ div.index {
     margin-top: 5px;
     background: #EEEEEE;
 }
+
 div.index2{
     margin-top: 15px;
 }
@@ -195,7 +196,7 @@ form.index{
 
 /* results */
 body.results {
-    background: url("images/bg6.jpg") no-repeat center center fixed;
+    background: url("images/bg8.jpg") no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -203,8 +204,8 @@ body.results {
 
 h1.results {
     text-align: center;
-    margin-top: 0px;
-    color: #F8DE22;
+    margin-top: 0;
+    color: #F7E987;
 }
 
 form.results{
@@ -254,4 +255,3 @@ div.results{
     cursor: pointer;
     transition: background-color;
 }
-

@@ -4,7 +4,6 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django.contrib import messages
-
 from .models import Question, Choice
 
 
@@ -22,6 +21,10 @@ class IndexView(generic.ListView):
 
 
 class DetailView(generic.DetailView):
+    """
+    The DetailView class is a generic class-based view that displays a single
+    object.
+    """
     model = Question
     template_name = 'polls/detail.html'
 
@@ -32,6 +35,14 @@ class DetailView(generic.DetailView):
         return Question.objects.filter(pub_date__lte=timezone.now())
 
     def get(self, request, *args, **kwargs):
+        """
+        The function checks if a question can be voted on and redirects
+        accordingly, displaying an error message if necessary.
+
+        :param request: The `request` parameter represents the HTTP request.
+        :return: The code is returning a rendered template with the "question"
+        variable passed as context.
+        """
         try:
             question = get_object_or_404(Question, pk=kwargs["pk"])
         except Http404:
@@ -42,28 +53,46 @@ class DetailView(generic.DetailView):
         if question.can_vote():
             return render(request, self.template_name, {"question": question})
         else:
-            messages.error(request,
-                           f"That poll is not available to vote.")
+            messages.error(request, f"That poll is not available to vote.")
 
             return redirect("polls:index")
 
 
 class ResultsView(generic.DetailView):
+    """
+    The ResultsView class is a generic detail view in Python.
+    """
     model = Question
     template_name = 'polls/results.html'
 
     def get(self, request, *args, **kwargs):
+        """
+        The `get` function retrieves a question object based on its
+        primary key, checks if it is a future question, and displays
+        an error message if it is not available for voting.
+
+        :param request: The `request` parameter represents the HTTP request.
+        :return: The code is returning a rendered HTML template with the
+        question and a boolean value.
+        """
         question = get_object_or_404(Question, pk=kwargs["pk"])
         is_future_question = not question.can_vote()
         if is_future_question:
-            messages.error(request,
-                           f"That poll is not available to vote.")
+            messages.error(request, f"That poll is not available to vote.")
         return render(request, self.template_name, {"question": question,
                                                     "is_future_question":
                                                         is_future_question})
 
 
 def vote(request, question_id):
+    """
+    The function allows users to vote on a specific question and updates the
+    vote count for the selected choice.
+
+    :param request: The request object represents the HTTP request.
+    :param question_id: The `question_id` parameter is the unique identifier.
+    :return: an HTTP redirect response to the 'polls:results'.
+    """
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
