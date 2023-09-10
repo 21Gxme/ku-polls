@@ -29,9 +29,9 @@
                                 <a class="no-hover">{{ question.question_text }}</a><br>
                                     <span class="vote-status">
                                         {% if question.can_vote %}
-                                            Status: 🟢
+                                            Status: <img src="{% static 'polls/images/check.png' %}" class="check">
                                         {% else %}
-                                            Status: 🔴
+                                            Status: <img src="{% static 'polls/images/cross.png' %}" class="check">
                                         {% endif %}
                                     </span>
                                 <div class="index2">

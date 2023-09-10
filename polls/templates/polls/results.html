@@ -34,14 +34,14 @@
 <script>
     // Get the poll data from Django template variables
     let labels = [{% for choice in question.choice_set.all %}"{{ choice.choice_text }}",{% endfor %}];
-    let voteCounts = [{% for choice in question.choice_set.all %}{{ choice.get_vote_count }},{% endfor %}];
+    let votes = [{% for choice in question.choice_set.all %}{{ choice.votes }},{% endfor %}];
 
     // Calculate the total votes
-    let totalVotes = voteCounts.reduce((a, b) => a + b, 0);
+    let totalVotes = votes.reduce((a, b) => a + b, 0);
 
     // Update the labels to include vote count and total vote count
     for (let i = 0; i < labels.length; i++) {
-        labels[i] += ` (${voteCounts[i]} votes)`;
+        labels[i] += ` (${votes[i]} votes)`;
     }
 
     // Display the total vote count
@@ -50,7 +50,7 @@
     let pollData = {
         labels: labels,
         datasets: [{
-            data: voteCounts,
+            data: votes,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.5)',
                 'rgba(54, 162, 235, 0.5)',

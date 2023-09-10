@@ -98,6 +98,12 @@ input[type="radio"] {
 
 /* ====================================================== */
 /* index */
+
+img.check{
+    width: 20px; /* default 15 */
+    height: 20px; /* default 15 */
+     margin-top: 2px;
+}
 a.no-hover:hover {
     color: #1450A3;
 }
