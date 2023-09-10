@@ -120,8 +120,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
-.venv
+# .env - You can include the .env file in version control if needed
+# .venv - You can include the .venv directory in version control if needed
 env/
 venv/
 ENV/

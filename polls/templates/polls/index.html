@@ -15,42 +15,46 @@
             }, 2000); // 2000 milliseconds (2 seconds)
         }
     });
-</script>
-
+    </script>
 </head>
 <body class="index">
-        <form class="index">
-            <fieldset class="index">
-                <legend><img src="{% static 'polls/images/KU.png' %}" alt="KU" class="ku"></legend>
-                    <div class="container">
-                    {% if latest_question_list %}
-                        <ul>
-                            {% for question in latest_question_list %}
-                                <div class="index">
-                                    <a class="no-hover">{{ question.question_text }}</a><br>
-                                    <div class="index2">
-                                        <a class="button-views" href="{% url 'polls:detail' question.id %}">Vote</a>
-                                        <a class="button-results" href="{% url 'polls:results' question.id %}">Results</a>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </ul>
-                    {% else %}
-                        <p>No polls are available.</p>
-                    {% endif %}
-                    </div>
-            </fieldset>
-                {% if messages %}
+    <form class="index">
+        <fieldset class="index">
+            <legend><img src="{% static 'polls/images/KU.png' %}" alt="KU" class="ku"></legend>
+            <div class="container">
+                {% if latest_question_list %}
                     <ul>
-                    <div id="error" class="error" style="color: #C70039">
-                        {% for message in messages %}
-                            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% for question in latest_question_list %}
+                            <div class="index">
+                                <a class="no-hover">{{ question.question_text }}</a><br>
+                                    <span class="vote-status">
+                                        {% if question.can_vote %}
+                                            Status: <img src="{% static 'polls/images/check.png' %}" class="check">
+                                        {% else %}
+                                            Status: <img src="{% static 'polls/images/cross.png' %}" class="check">
+                                        {% endif %}
+                                    </span>
+                                <div class="index2">
+                                    <a class="button-views" href="{% url 'polls:detail' question.id %}">Vote</a>
+                                    <a class="button-results" href="{% url 'polls:results' question.id %}">Results</a>
+                                </div>
+                            </div>
                         {% endfor %}
-                    </div>
                     </ul>
+                {% else %}
+                    <p>No polls are available.</p>
                 {% endif %}
+            </div>
+        </fieldset>
+        {% if messages %}
+            <ul>
+                <div id="error" class="error" style="color: #C70039">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
                 </div>
-                </ul>
-        </form>
+            </ul>
+        {% endif %}
+    </form>
 </body>
 </html>

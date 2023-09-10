@@ -31,6 +31,8 @@ p {
     font-size: 1.2em;
 }
 
+/* ====================================================== */
+
 /* detail */
 body.detail {
     background: url("images/bg.jpeg") no-repeat;
@@ -39,24 +41,14 @@ body.detail {
     padding: 0;
 }
 
-/*.button-home{*/
-/*    background-color: #337CCF;*/
-/*    color: #fff;*/
-/*    padding: 5px 5px;*/
-/*    border: none;*/
-/*    border-radius: 5px;*/
-/*    cursor: pointer;*/
-/*    transition: background-color;*/
-/*}*/
-
 h1.detail {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 15px;
 }
 
 legend {
     font-size: 1.2em;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 form.detail{
@@ -79,16 +71,15 @@ label {
 
 div.error-vote {
     text-align: center;
-    color: #F94C10;
-    animation: shake 0.5s ease-in-out infinite; /* Add animation */
+    color: #952323;
+    animation: shake 2s ease-in-out infinite; /* Add animation */
 }
-
 
 input[type="radio"] {
     margin-right: 5px;
 }
 
-input[type="submit"] {
+.button-vote{
     margin-top: 10px;
     background-color: #337CCF;
     color: #fff;
@@ -99,29 +90,24 @@ input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
+
+.button-vote:hover{
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-input[type="button"] {
-    margin-top: 10px;
-    background-color: #337CCF;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-input[type="button"]:hover {
-    background-color: #0056b3;
-}
-
+/* ====================================================== */
 /* index */
+
+img.check{
+    width: 20px; /* default 15 */
+    height: 20px; /* default 15 */
+     margin-top: 2px;
+}
 a.no-hover:hover {
     color: #1450A3;
 }
+
 .button-views{
     background-color: #337CCF;
     color: #fff;
@@ -155,6 +141,7 @@ div.index {
     margin-top: 5px;
     background: #EEEEEE;
 }
+
 div.index2{
     margin-top: 15px;
 }
@@ -196,20 +183,26 @@ form.index{
 }
 
 .container {
-    max-height: 61vh; /* Set the maximum height to the viewport height */
+    max-height: 62vh; /* Set the maximum height to the viewport height */
     overflow-y: auto; /* Add vertical scrollbar if content overflows */
 }
 
 .ku{
     width: 200px;
     height: 100px;
-
 }
 
+.vote-status{
+    text-align: center;
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #1450A3;
+}
+/* ====================================================== */
 
 /* results */
 body.results {
-    background: url("images/bg6.jpg") no-repeat center center fixed;
+    background: url("images/bg8.jpg") no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -217,8 +210,8 @@ body.results {
 
 h1.results {
     text-align: center;
-    margin-top: 0px;
-    color: #F8DE22;
+    margin-top: 0;
+    color: #F7E987;
 }
 
 form.results{
@@ -234,15 +227,6 @@ fieldset.results{
     border-radius: 12px;
 }
 
-.button-home{
-    background-color: #337CCF;
-    color: #fff;
-    padding: 5px 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color;
-}
 
 div.results{
     border: 2px solid #176B87;
@@ -253,7 +237,6 @@ div.results{
 
 #totalVotes {
     display: inline-block; /* Make it inline-block to fit with the text */
-    /*text-align: center;*/
     font-family: 'Mulish', sans-serif;
     font-size: 18px;
     margin-top: 10px;
@@ -266,6 +249,15 @@ div.results{
 }
 
 #buttonContainer {
-    /*text-align: center;*/
     margin-top: 20px;
+}
+
+.button-home{
+    background-color: #337CCF;
+    color: #fff;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color;
 }

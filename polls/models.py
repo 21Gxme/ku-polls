@@ -77,3 +77,10 @@ class Choice(models.Model):
         :return: return the `choice_text` attribute of the object.
         """
         return self.choice_text
+
+    def get_vote_count(self):
+        """
+        The function returns the number of votes for a choice.
+        :return: an integer value.
+        """
+        return self.votes
