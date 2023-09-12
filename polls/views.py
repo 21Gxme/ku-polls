@@ -4,7 +4,8 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django.contrib import messages
-from .models import Question, Choice
+from .models import Question, Choice, Vote
+from django.contrib.auth.decorators import login_required
 
 
 class IndexView(generic.ListView):
@@ -84,6 +85,7 @@ class ResultsView(generic.DetailView):
                                                         is_future_question})
 
 
+@login_required
 def vote(request, question_id):
     """
     The function allows users to vote on a specific question and updates the
@@ -94,6 +96,9 @@ def vote(request, question_id):
     :return: an HTTP redirect response to the 'polls:results'.
     """
     question = get_object_or_404(Question, pk=question_id)
+    if not question.can_vote():
+        # user must be logged in to vote
+        return redirect("login")
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
@@ -102,8 +107,19 @@ def vote(request, question_id):
             'question': question,
             'error_message': "You didn't select a choice."
         })
-    else:
-        selected_choice.votes += 1
-        selected_choice.save()
-        return HttpResponseRedirect(
-            reverse('polls:results', args=(question.id,)))
+    this_user = request.user
+    # selected_choice.votes += 1
+    # selected_choice.save()
+    """if the user has a vote for this question, update the vote for selected_choice save it"""
+    try:
+        # find the vote for this user and question
+        vote = Vote.objects.get(user=this_user, choice__question=question)
+        vote.choice = selected_choice
+    except Vote.DoesNotExist:
+        # create a new vote object
+        vote = Vote(user=this_user, choice=selected_choice)
+
+    vote.save()
+    # TODO: Use message to display a confirmation on the results page
+
+    return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))

@@ -21,6 +21,11 @@
     <form class="index">
         <fieldset class="index">
             <legend><img src="{% static 'polls/images/KU.png' %}" alt="KU" class="ku"></legend>
+        {% if user.is_authenticated %}
+            <p>Welcome back, {{ user.username.title }}</p>
+        {% else %}
+            Please<a href="{% url 'login' %}"> login</a> to vote
+        {% endif %}
             <div class="container">
                 {% if latest_question_list %}
                     <ul>

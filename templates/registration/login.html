@@ -2,7 +2,7 @@
 <head>Please login</head>
 <body>
 <h2>Login</h2>
-<form method="post" action="http://localhost:8000">
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <p>
