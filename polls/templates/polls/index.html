@@ -21,17 +21,18 @@
     <form class="index">
         <fieldset class="index">
             <legend><img src="{% static 'polls/images/KU.png' %}" alt="KU" class="ku"></legend>
-        {% if user.is_authenticated %}
-            <p>Welcome back, {{ user.username.title }}</p>
-        {% else %}
-            Please<a href="{% url 'login' %}"> login</a> to vote
-        {% endif %}
-            <div class="container">
-                {% if latest_question_list %}
-                    <ul>
-                        {% for question in latest_question_list %}
-                            <div class="index">
-                                <a class="no-hover">{{ question.question_text }}</a><br>
+                {% if user.is_authenticated %}
+                    <p class="welcome">Welcome back, {{ user.username.title }}</p><br/>
+                    <a class="login" href="{% url 'logout' %}">Log out</a>
+                {% else %}
+                    <a class="login" href="{% url 'login' %}"> Log in</a>
+                {% endif %}
+                 <div class="container">
+                    {% if latest_question_list %}
+                        <div class="questions-list">
+                            {% for question in latest_question_list %}
+                                <div class="question-item">
+                                    <a class="no-hover">{{ question.question_text }}</a><br>
                                     <span class="vote-status">
                                         {% if question.can_vote %}
                                             Status: <img src="{% static 'polls/images/check.png' %}" class="check">
@@ -39,17 +40,17 @@
                                             Status: <img src="{% static 'polls/images/cross.png' %}" class="check">
                                         {% endif %}
                                     </span>
-                                <div class="index2">
-                                    <a class="button-views" href="{% url 'polls:detail' question.id %}">Vote</a>
-                                    <a class="button-results" href="{% url 'polls:results' question.id %}">Results</a>
+                                    <div class="actions">
+                                        <a class="button-views" href="{% url 'polls:detail' question.id %}">Vote</a>
+                                        <a class="button-results" href="{% url 'polls:results' question.id %}">Results</a>
+                                    </div>
                                 </div>
-                            </div>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>No polls are available.</p>
-                {% endif %}
-            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>No polls are available.</p>
+                    {% endif %}
+                </div>
         </fieldset>
         {% if messages %}
             <ul>
