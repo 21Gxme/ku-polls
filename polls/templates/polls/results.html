@@ -29,6 +29,12 @@
                 </div>
             </main>
         </fieldset>
+        {% if user.is_authenticated %}
+        <p class="welcome">Welcome back, {{ user.username.title }}</p><br/>
+        <a class="login" href="{% url 'logout' %}">Log out</a><br/>
+        {% else %}
+        <a class="login" href="{% url 'login' %}"> Log in</a><br/>
+        {% endif %}
     </form>
 
 <script>

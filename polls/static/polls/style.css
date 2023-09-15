@@ -38,7 +38,10 @@ p {
 
 /* detail */
 
-
+.choice{
+    margin-top: 10px;
+    /*margin-bottom: 10px;*/
+}
 form.detail {
     width: 900px;
     max-width: 100%; /* Ensure it doesn't exceed 900px when the viewport is narrower */
@@ -61,7 +64,7 @@ h1.detail {
 
 legend {
     font-size: 1.2em;
-    margin-bottom: 5px;
+    margin-bottom: -40px;
 }
 
 form.detail {
@@ -95,6 +98,7 @@ input[type="radio"] {
 
 .button-vote {
     margin-top: 10px;
+    margin-bottom: 10px; /* Add this line */
     background-color: #337CCF;
     color: #fff;
     padding: 10px 20px;
@@ -103,6 +107,7 @@ input[type="radio"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 
 .button-vote:hover {
     background-color: #0056b3;
@@ -115,17 +120,18 @@ input[type="radio"] {
 .welcome {
     text-align: center;
     font-size: 1.2em;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #1450A3;
     border: 2px solid #176B87;
     border-radius: 5px;
     background: #EEEEEE;
     padding: 5px 10px;
     display: inline-block;
+    margin-top: 5px;
 }
 
 .login {
-    /*margin-top: -20px;*/
+    margin-top: 20px; /* Adjust this value to increase the space between the button and the border */
     background-color: #337CCF;
     color: #fff;
     padding: 5px 5px;
@@ -133,19 +139,20 @@ input[type="radio"] {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color;
-    margin-top: 50px;
+    margin-bottom: 15px;
 }
 
 .login:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
-
 
 img.check{
     width: 20px; /* default 15 */
     height: 20px; /* default 15 */
-     margin-top: 2px;
+    margin-top: 2px;
 }
+
 a.no-hover:hover {
     color: #1450A3;
 }
@@ -176,9 +183,7 @@ body.index {
     background-size: cover;
     margin: 0;
     padding: 0;
-
 }
-
 
 .question-item:hover{
     transform: translateY(-3px);
@@ -209,6 +214,7 @@ fieldset.index{
     border: 2px solid #176B87;
     padding: 20px;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 h1.index {
@@ -301,6 +307,7 @@ fieldset.results{
     border: 2px solid #176B87;
     padding: 15px;
     border-radius: 12px;
+    margin-bottom: 10px;
 }
 
 

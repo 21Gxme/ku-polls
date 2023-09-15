@@ -18,15 +18,10 @@
     </script>
 </head>
 <body class="index">
+
     <form class="index">
         <fieldset class="index">
             <legend><img src="{% static 'polls/images/KU.png' %}" alt="KU" class="ku"></legend>
-                {% if user.is_authenticated %}
-                    <p class="welcome">Welcome back, {{ user.username.title }}</p><br/>
-                    <a class="login" href="{% url 'logout' %}">Log out</a>
-                {% else %}
-                    <a class="login" href="{% url 'login' %}"> Log in</a>
-                {% endif %}
                  <div class="container">
                     {% if latest_question_list %}
                         <div class="questions-list">
@@ -52,6 +47,12 @@
                     {% endif %}
                 </div>
         </fieldset>
+                    {% if user.is_authenticated %}
+                    <p class="welcome">Welcome back, {{ user.username.title }}</p><br/>
+                    <a class="login" href="{% url 'logout' %}">Log out</a>
+                {% else %}
+                    <a class="login" href="{% url 'login' %}"> Log in</a>
+                {% endif %}
         {% if messages %}
             <ul>
                 <div id="error" class="error" style="color: #C70039">

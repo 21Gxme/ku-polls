@@ -15,7 +15,7 @@ class Question(models.Model):
         end_date: The date and time when the question was ended.
     """
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published', auto_now_add=False)
+    pub_date = models.DateTimeField('date published', default=timezone.now)
     end_date = models.DateTimeField('date ended', null=True, blank=True,
                                     default=None)
 
