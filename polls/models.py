@@ -66,11 +66,9 @@ class Choice(models.Model):
     Attributes:
         question: The question to which this choice belongs.
         choice_text: The text of the choice.
-        votse: The number of votes.
     """
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
-    # votes = models.IntegerField(default=0)
 
     @property
     def votes(self):

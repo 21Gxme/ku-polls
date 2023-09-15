@@ -344,3 +344,14 @@ div.results{
     cursor: pointer;
     transition: background-color;
 }
+
+
+.messages {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #d4d4d4;
+    background-color: #e8f6e8;
+    color: #2a7f2a;
+    border-radius: 5px;
+    text-align: center;
+}

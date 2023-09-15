@@ -24,7 +24,7 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     """View for displaying each question's detail.
 
-    :param pk: Primary key of the question
+    :param: Primary key of the question
     :return: Rendered template with question details
     """
     model = Question
@@ -39,35 +39,40 @@ class DetailView(generic.DetailView):
         return Question.objects.filter(pub_date__lte=timezone.now())
 
     def get(self, request, *args, **kwargs):
-        """Get the question object and render the template.
+        """Retrieve the specified question and display its details.
 
-        :param request: Django request object
-        :param args: Arguments
-        :param kwargs: Keyword arguments
-        :return: Rendered template with question details
+        :param request: The incoming request from the user.
+        :param args: Additional arguments.
+        :param kwargs: Keyword arguments, typically containing the question's
+        primary key.
+        :return: The rendered template showing the question's details.
         """
+
+        # Attempt to fetch the question based on the provided primary key.
         try:
             self.object = get_object_or_404(Question, pk=kwargs["pk"])
         except Http404:
             messages.error(request,
-                           f"Poll with ID {kwargs['pk']} does not exist.")
+                           f"Poll with ID {kwargs['pk']} is not found.")
             return redirect("polls:index")
-
+        # Try to get the current user's vote for this question.
         try:
             user_vote = self.object.choice_set.filter(
                 vote__user=request.user).last()
         except TypeError:
             user_vote = None
-
-        context = self.get_context_data(object=self.object, user_vote=user_vote)
-
+        # Prepare the context for rendering the template.
+        context = self.get_context_data(object=self.object,
+                                        user_vote=user_vote)
+        # Check if the poll is still open for voting.
         if not self.object.can_vote():
             messages.error(request,
-                           f"Poll {self.object} has ended and is not "
-                           f"available for voting.")
+                           f"The poll '{self.object}' "
+                           f"has concluded and voting is closed.")
             return redirect("polls:index")
-
+        # Render the template with the provided context.
         return self.render_to_response(context)
+
 
 class ResultsView(generic.DetailView):
     """
@@ -119,9 +124,15 @@ def vote(request, question_id):
     """if the user has a vote for this question, update the vote for
     selected_choice save it"""
     try:
-        current_vote = Vote.objects.get(user=this_user, choice__question=question)
+        current_vote = Vote.objects.get(user=this_user,
+                                        choice__question=question)
         current_vote.choice = selected_choice
     except Vote.DoesNotExist:
         current_vote = Vote(user=this_user, choice=selected_choice)
     current_vote.save()
-    return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+    # Add a success message after saving the vote
+    messages.success(request, f'Your vote for '
+                              f'{selected_choice.choice_text} has been saved.')
+    return HttpResponseRedirect(reverse('polls:results',
+                                        args=(question.id,)))
