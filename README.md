@@ -12,6 +12,17 @@ https://cpske.github.io/ISP) course at Kasetsart University.
 
 to be added.
 
+## Demo Admin Account
+| Username | Password |
+|----------|----------|
+| admin    | 1234     |
+
+## Demo User Account
+| Username | Password |
+|----------|----------|
+| bob      | bob1234  |
+| Game     | Game1234 |
+
 ## Project Documents
 
 All project documents are in the [Project Wiki](../../wiki/Home).
