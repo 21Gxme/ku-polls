@@ -47,30 +47,24 @@ class DetailView(generic.DetailView):
         primary key.
         :return: The rendered template showing the question's details.
         """
-
-        # Attempt to fetch the question based on the provided primary key.
         try:
             self.object = get_object_or_404(Question, pk=kwargs["pk"])
         except Http404:
             messages.error(request,
                            f"Poll with ID {kwargs['pk']} is not found.")
             return redirect("polls:index")
-        # Try to get the current user's vote for this question.
         try:
             user_vote = self.object.choice_set.filter(
                 vote__user=request.user).last()
         except TypeError:
             user_vote = None
-        # Prepare the context for rendering the template.
         context = self.get_context_data(object=self.object,
                                         user_vote=user_vote)
-        # Check if the poll is still open for voting.
         if not self.object.can_vote():
             messages.error(request,
                            f"The poll '{self.object}' "
                            f"has concluded and voting is closed.")
             return redirect("polls:index")
-        # Render the template with the provided context.
         return self.render_to_response(context)
 
 
