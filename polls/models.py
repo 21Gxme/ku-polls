@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from django.contrib import admin
+from django.contrib.auth.models import User
 
 
 class Question(models.Model):
@@ -14,7 +15,7 @@ class Question(models.Model):
         end_date: The date and time when the question was ended.
     """
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published', auto_now_add=False)
+    pub_date = models.DateTimeField('date published', default=timezone.now)
     end_date = models.DateTimeField('date ended', null=True, blank=True,
                                     default=None)
 
@@ -65,11 +66,17 @@ class Choice(models.Model):
     Attributes:
         question: The question to which this choice belongs.
         choice_text: The text of the choice.
-        votes: The number of votes.
     """
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+
+    @property
+    def votes(self):
+        """
+        The function returns the number of votes for a choice.
+        :return: an integer value.
+        """
+        return self.vote_set.count()
 
     def __str__(self):
         """
@@ -84,3 +91,11 @@ class Choice(models.Model):
         :return: an integer value.
         """
         return self.votes
+
+
+class Vote(models.Model):
+    """
+    Record a vote for a choice in a particular question.
+    """
+    choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

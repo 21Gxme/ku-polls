@@ -37,7 +37,7 @@ class QuestionModelTests(TestCase):
     def test_old_question(self):
         """
         The function tests if a question was published recently by checking
-        its publish date.
+        its publishing date.
         """
         publish_date = timezone.now() - datetime.timedelta(days=1, seconds=1)
         old_question = Question(pub_date=publish_date)

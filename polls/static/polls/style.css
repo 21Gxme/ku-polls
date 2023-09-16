@@ -29,11 +29,27 @@ a:hover {
 p {
     text-align: center;
     font-size: 1.2em;
+    text-decoration: none;
+    color: #1450A3;
+    transition: color 0.3s ease;
 }
 
 /* ====================================================== */
 
 /* detail */
+
+.choice{
+    margin-top: 10px;
+    /*margin-bottom: 10px;*/
+}
+form.detail {
+    width: 900px;
+    max-width: 100%; /* Ensure it doesn't exceed 900px when the viewport is narrower */
+    margin: 0 auto;
+    padding: 20px;
+    color: #FFC436;
+}
+
 body.detail {
     background: url("images/bg.jpeg") no-repeat;
     background-size: cover;
@@ -48,17 +64,18 @@ h1.detail {
 
 legend {
     font-size: 1.2em;
-    margin-bottom: 10px;
+    margin-bottom: -40px;
 }
 
-form.detail{
-    max-width: 500px;
+form.detail {
+    width: 900px; /* Added width property */
+    max-width: 100%; /* Ensure it doesn't exceed 900px when the viewport is narrower */
     margin: 0 auto;
     padding: 20px;
     color: #FFC436;
 }
 
-fieldset.detail{
+fieldset.detail {
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
@@ -72,15 +89,16 @@ label {
 div.error-vote {
     text-align: center;
     color: #952323;
-    animation: shake 2s ease-in-out infinite; /* Add animation */
+    animation: shake 2s ease-in-out infinite;
 }
 
 input[type="radio"] {
     margin-right: 5px;
 }
 
-.button-vote{
+.button-vote {
     margin-top: 10px;
+    margin-bottom: 10px; /* Add this line */
     background-color: #337CCF;
     color: #fff;
     padding: 10px 20px;
@@ -91,19 +109,50 @@ input[type="radio"] {
 }
 
 
-.button-vote:hover{
+.button-vote:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
 
+
 /* ====================================================== */
 /* index */
+.welcome {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #1450A3;
+    border: 2px solid #176B87;
+    border-radius: 5px;
+    background: #EEEEEE;
+    padding: 5px 10px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.login {
+    margin-top: 20px; /* Adjust this value to increase the space between the button and the border */
+    background-color: #337CCF;
+    color: #fff;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color;
+    margin-bottom: 15px;
+}
+
+.login:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
 
 img.check{
     width: 20px; /* default 15 */
     height: 20px; /* default 15 */
-     margin-top: 2px;
+    margin-top: 2px;
 }
+
 a.no-hover:hover {
     color: #1450A3;
 }
@@ -116,6 +165,7 @@ a.no-hover:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color;
+
 }
 
 .button-results{
@@ -126,6 +176,7 @@ a.no-hover:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color;
+    margin-left: 5px;
 }
 body.index {
     background: url("images/bg5.jpg") no-repeat center center fixed;
@@ -134,12 +185,8 @@ body.index {
     padding: 0;
 }
 
-div.index {
-    border: 2px solid #176B87;
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 5px;
-    background: #EEEEEE;
+.question-item:hover{
+    transform: translateY(-3px);
 }
 
 div.index2{
@@ -167,6 +214,7 @@ fieldset.index{
     border: 2px solid #176B87;
     padding: 20px;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 h1.index {
@@ -176,16 +224,49 @@ h1.index {
 }
 
 form.index{
-    max-width: 400px; /* Set a default minimum width */
+    max-width: 900px; /* Set a default minimum width */
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
 }
 
 .container {
-    max-height: 62vh; /* Set the maximum height to the viewport height */
-    overflow-y: auto; /* Add vertical scrollbar if content overflows */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
 }
+
+.questions-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    align-items: stretch; /* This will make items in the same row have equal height */
+}
+
+.question-item {
+    border: 2px solid #176B87;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 5px;
+    background: #EEEEEE;
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+    padding-bottom: 40px;
+    min-height: 160px; /* Set the minimum height to 80px */
+}
+
+
+.actions {
+    display: flex;
+    justify-content: flex-start; /* Align buttons to the left */
+    position: absolute; /* Absolute positioning */
+    bottom: 10px; /* Position 10px from the bottom */
+    left: 10px; /* Position 10px from the left */
+}
+
 
 .ku{
     width: 200px;
@@ -198,6 +279,7 @@ form.index{
     margin-bottom: 15px;
     color: #1450A3;
 }
+
 /* ====================================================== */
 
 /* results */
@@ -225,6 +307,7 @@ fieldset.results{
     border: 2px solid #176B87;
     padding: 15px;
     border-radius: 12px;
+    margin-bottom: 10px;
 }
 
 
@@ -260,4 +343,15 @@ div.results{
     border-radius: 5px;
     cursor: pointer;
     transition: background-color;
+}
+
+
+.messages {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #d4d4d4;
+    background-color: #e8f6e8;
+    color: #2a7f2a;
+    border-radius: 5px;
+    text-align: center;
 }

@@ -23,12 +23,25 @@
             <legend><h1 class="results">{{ question.question_text }}</h1></legend>
             <main>
                 <canvas id="pollResultsChart"></canvas>
+                {% if messages %}
+                    <div class="messages">
+                {% for message in messages %}
+                    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                {% endfor %}
+                     </div>
+                {% endif %}
                 <div id="totalVotes"></div>
                 <div id="buttonContainer">
                     <a class="button-home" href="{% url 'polls:index' %}">Back to home</a>
                 </div>
             </main>
         </fieldset>
+        {% if user.is_authenticated %}
+        <p class="welcome">Welcome back, {{ user.username.title }}</p><br/>
+        <a class="login" href="{% url 'logout' %}">Log out</a><br/>
+        {% else %}
+        <a class="login" href="{% url 'login' %}"> Log in</a><br/>
+        {% endif %}
     </form>
 
 <script>

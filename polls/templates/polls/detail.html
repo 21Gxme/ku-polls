@@ -5,35 +5,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Poll Form</title>
+    <title>Poll Form</title>
     <link rel="stylesheet" href="{% static 'polls/style.css' %}">
-        <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const errorDiv = document.getElementById("error");
-        if (errorDiv) {
-            setTimeout(function () {
-                errorDiv.style.display = "none";
-            }, 2000); // 2000 milliseconds (2 seconds)
-        }
-    });
+    <script>
+        // Function to save the selected choice to localStorage
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Show the error message if it exists
+            const errorDiv = document.getElementById("error");
+            if (errorDiv && errorDiv.innerText.trim() !== "") {
+                errorDiv.style.display = "block"; // Display the error message
+                setTimeout(function () {
+                    errorDiv.style.display = "none"; // Hide the error message after 2 seconds
+                }, 2000); // 2000 milliseconds (2 seconds)
+            }
+        });
     </script>
 </head>
 <body class="detail">
-<form action="{% url 'polls:vote' question.id %}" method="post" class="detail">
-{% csrf_token %}
-<fieldset class="detail">
-    <legend><h1 class="detail">{{ question.question_text }}</h1></legend>
-    {% for choice in question.choice_set.all %}
-        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-    {% endfor %}
-
-</fieldset>
-    <input type="submit" value="Vote" class="button-vote">
-    <a href="{% url 'polls:index' %}"><button type="button" class="button-vote">Back</button></a>
-    <div class="error-vote" id="error">
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-    </div>
-</form>
+    <form action="{% url 'polls:vote' question.id %}" method="post" class="detail">
+        {% csrf_token %}
+        <fieldset class="detail">
+            <legend><h1 class="detail">{{ question.question_text }}</h1></legend>
+            {% for choice in question.choice_set.all %}
+                <div class="choice">
+                    {% if user_vote and choice.id == user_vote.id %}
+                            <input type="radio" checked="true" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                          {% else %}
+                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                          {% endif %}
+                <label for="choice{{ choice.id }}">{{ choice.choice_text }}</label><br>
+                </div>
+            {% endfor %}
+        </fieldset>
+        <input type="submit" value="Vote" class="button-vote">
+        <a href="{% url 'polls:index' %}"><button type="button" class="button-vote">Back</button></a><br/>
+                    {% if user.is_authenticated %}
+                    <p class="welcome">Welcome back, {{ user.username.title }}</p><br/>
+                    <a class="login" href="{% url 'logout' %}">Log out</a><br/>
+                {% else %}
+                    <a class="login" href="{% url 'login' %}"> Log in</a><br/>
+                {% endif %}
+        <div class="error-vote" id="error">
+            {% if error_message %}<p style="color: #952323"><strong>{{ error_message }}</strong></p>{% endif %}
+        </div>
+    </form>
 </body>
 </html>
