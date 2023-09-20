@@ -1,16 +1,30 @@
-<html>
-<head>Please login</head>
+{% load static %}
+{% block content %}
+    <head>
+        <title>Log In</title>
+<link rel="stylesheet" href="{% static 'polls/login.css' %}">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
 <body>
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <p>
-        <button type="submit">Login</button>
-    </p>
-    <input type="hidden" name="next" value="{{ next }}"/>
-</form>
-{# If you have a sign-up page, then add a link here #}
-</form>
+<div class="wrapper">
+    <form method="POST" class="custom-form">
+        {% csrf_token %}
+        <h1>Login</h1>
+
+        <div class="input-box">
+            <input type="text" name="username" placeholder="Username" required>
+            <i class='bx bxs-user'></i>
+        </div>
+
+        <div class="input-box">
+            <input type="password" name="password" placeholder="Password" required>
+            <i class='bx bxs-lock-alt' ></i>
+        </div>
+        <button type="submit" class="btn">Login</button>
+    </form>
+</div>
 </body>
-</html>
+
+{% endblock %}
+
+<!-- https://www.youtube.com/watch?v=hlwlM4a5rxg -->

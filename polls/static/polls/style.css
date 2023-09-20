@@ -178,6 +178,7 @@ a.no-hover:hover {
     transition: background-color;
     margin-left: 5px;
 }
+
 body.index {
     background: url("images/bg5.jpg") no-repeat center center fixed;
     background-size: cover;
