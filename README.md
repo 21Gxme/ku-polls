@@ -8,9 +8,53 @@ additional features.
 This app was created as part of the [Individual Software Process](
 https://cpske.github.io/ISP) course at Kasetsart University.
 
-## Install and Run
+## Requirements
 
-to be added.
+- Python 3.9+ and packages listed in [requirements.txt](requirements.txt)
+## Install and Configure
+
+Check from [Install and Configure](Installation.md)
+
+## How to Run
+
+#### On MacOS or Linux:
+
+1. Activate virtual environment
+```terminal
+. venv/bin/activate
+```
+
+2. Start the Django development server
+```terminal
+python manage.py runserver
+```
+3. Open the web browser and go to http://localhost:8000
+
+4. To stop the server, press `Ctrl + C`
+
+5. To deactivate virtual environment
+```terminal
+deactivate
+```
+
+#### On Windows:
+
+1. Activate virtual environment
+```terminal
+.venv\Scripts\activate
+```
+
+2. Start the Django development server
+```terminal
+python manage.py runserver
+```
+
+3. Open the web browser and go to http://localhost:8000
+4. To stop the server, press `Ctrl + C`
+5. To deactivate virtual environment
+```terminal
+deactivate
+```
 
 ## Demo Admin Account
 | Username | Password |
