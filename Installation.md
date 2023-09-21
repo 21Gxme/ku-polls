@@ -30,14 +30,16 @@ pip install -r requirements.txt
 ```
 
 6. Create a file named `.env` in the same directory as `manage.py`:
-```terminal
-On Linux/MacOS:
-cp sample.env .env
-```
-```terminal
-On Windows:
-copy sample.env .env
-```
+
+    On Linux/MacOS:
+    ```terminal
+    cp sample.env .env
+    ``` 
+    On Windows:
+    
+    ```terminal
+    copy sample.env .env
+    ```
 
 7. Run database migration
 ```terminal
@@ -58,4 +60,8 @@ python manage.py test polls
 10. Run server
 ```terminal
 python manage.py runserver
+```
+note: if css not show try to use 
+```terminal
+python manage.py runserver --insecure
 ```
