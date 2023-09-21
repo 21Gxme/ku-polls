@@ -106,14 +106,11 @@ def vote(request, question_id):
     """
     question = get_object_or_404(Question, pk=question_id)
     if not question.can_vote():
-        return redirect("login")
+        return redirect("login")  # Redirect to the login page if not logged in
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        return render(request, 'polls/detail.html', {
-            'question': question,
-            'error_message': "You didn't select a choice."
-        })
+        return redirect("polls:detail", pk=question.id)
     this_user = request.user
     """if the user has a vote for this question, update the vote for
     selected_choice save it"""
@@ -128,5 +125,5 @@ def vote(request, question_id):
     # Add a success message after saving the vote
     messages.success(request, f'Your vote for '
                               f'{selected_choice.choice_text} has been saved.')
-    return HttpResponseRedirect(reverse('polls:results',
-                                        args=(question.id,)))
+    return HttpResponseRedirect(reverse(
+        'polls:results', args=(question.id,)))

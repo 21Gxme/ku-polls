@@ -221,6 +221,46 @@
   }
 },
 {
+  "model": "polls.choice",
+  "pk": 35,
+  "fields": {
+    "question": 1,
+    "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 36,
+  "fields": {
+    "question": 2,
+    "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 37,
+  "fields": {
+    "question": 3,
+    "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 38,
+  "fields": {
+    "question": 4,
+    "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 39,
+  "fields": {
+    "question": 5,
+    "choice_text": "Other"
+  }
+},
+{
   "model": "polls.vote",
   "pk": 1,
   "fields": {

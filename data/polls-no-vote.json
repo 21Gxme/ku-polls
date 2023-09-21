@@ -5,7 +5,7 @@
   "fields": {
     "question_text": "Which is your preferred vacation destination?",
     "pub_date": "2023-08-31T03:24:05Z",
-    "end_date": "2023-09-09T06:21:42Z"
+    "end_date": "2023-09-09T07:15:38Z"
   }
 },
 {
@@ -14,7 +14,7 @@
   "fields": {
     "question_text": "What's your favorite genre of music?",
     "pub_date": "2023-08-31T03:24:15Z",
-    "end_date": "2023-09-09T06:21:42Z"
+    "end_date": "2023-09-25T06:21:42Z"
   }
 },
 {
@@ -23,7 +23,7 @@
   "fields": {
     "question_text": "Which programming language do you prefer for web development?",
     "pub_date": "2023-09-06T19:05:05Z",
-    "end_date": "2023-09-07T05:55:47Z"
+    "end_date": "2023-09-25T05:55:47Z"
   }
 },
 {
@@ -32,7 +32,7 @@
   "fields": {
     "question_text": "What is your favorite desktop operating system?",
     "pub_date": "2023-09-07T10:41:21Z",
-    "end_date": "2023-09-07T15:22:44Z"
+    "end_date": "2023-09-25T15:22:44Z"
   }
 },
 {
@@ -49,8 +49,7 @@
   "pk": 13,
   "fields": {
     "question": 2,
-    "choice_text": "Rock",
-    "votes": 1
+    "choice_text": "Rock"
   }
 },
 {
@@ -58,8 +57,7 @@
   "pk": 14,
   "fields": {
     "question": 2,
-    "choice_text": "Pop",
-    "votes": 2
+    "choice_text": "Pop"
   }
 },
 {
@@ -67,8 +65,7 @@
   "pk": 15,
   "fields": {
     "question": 2,
-    "choice_text": "Hip-hop/Rap",
-    "votes": 2
+    "choice_text": "Hip-hop/Rap"
   }
 },
 {
@@ -76,8 +73,7 @@
   "pk": 16,
   "fields": {
     "question": 2,
-    "choice_text": "Electronic",
-    "votes": 1
+    "choice_text": "Electronic"
   }
 },
 {
@@ -85,8 +81,7 @@
   "pk": 17,
   "fields": {
     "question": 2,
-    "choice_text": "Classical",
-    "votes": 4
+    "choice_text": "Classical"
   }
 },
 {
@@ -94,8 +89,7 @@
   "pk": 18,
   "fields": {
     "question": 1,
-    "choice_text": "Beach resort",
-    "votes": 5
+    "choice_text": "Beach resort"
   }
 },
 {
@@ -103,8 +97,7 @@
   "pk": 19,
   "fields": {
     "question": 1,
-    "choice_text": "Mountain cabin",
-    "votes": 4
+    "choice_text": "Mountain cabin"
   }
 },
 {
@@ -112,8 +105,7 @@
   "pk": 20,
   "fields": {
     "question": 1,
-    "choice_text": "Cultural city tour",
-    "votes": 2
+    "choice_text": "Cultural city tour"
   }
 },
 {
@@ -121,8 +113,7 @@
   "pk": 21,
   "fields": {
     "question": 1,
-    "choice_text": "Adventure wilderness",
-    "votes": 1
+    "choice_text": "Adventure wilderness"
   }
 },
 {
@@ -130,8 +121,7 @@
   "pk": 22,
   "fields": {
     "question": 1,
-    "choice_text": "Spa retreat",
-    "votes": 1
+    "choice_text": "Spa retreat"
   }
 },
 {
@@ -139,8 +129,7 @@
   "pk": 23,
   "fields": {
     "question": 3,
-    "choice_text": "JavaScript",
-    "votes": 2
+    "choice_text": "JavaScript"
   }
 },
 {
@@ -148,8 +137,7 @@
   "pk": 24,
   "fields": {
     "question": 3,
-    "choice_text": "TypeScript",
-    "votes": 1
+    "choice_text": "TypeScript"
   }
 },
 {
@@ -157,8 +145,7 @@
   "pk": 25,
   "fields": {
     "question": 3,
-    "choice_text": "Python",
-    "votes": 0
+    "choice_text": "Python"
   }
 },
 {
@@ -166,8 +153,7 @@
   "pk": 26,
   "fields": {
     "question": 3,
-    "choice_text": "Ruby",
-    "votes": 0
+    "choice_text": "Ruby"
   }
 },
 {
@@ -175,8 +161,7 @@
   "pk": 27,
   "fields": {
     "question": 4,
-    "choice_text": "Windows",
-    "votes": 1
+    "choice_text": "Windows"
   }
 },
 {
@@ -184,8 +169,7 @@
   "pk": 28,
   "fields": {
     "question": 4,
-    "choice_text": "macOS",
-    "votes": 0
+    "choice_text": "macOS"
   }
 },
 {
@@ -193,8 +177,7 @@
   "pk": 29,
   "fields": {
     "question": 4,
-    "choice_text": "Linux ",
-    "votes": 0
+    "choice_text": "Linux "
   }
 },
 {
@@ -202,8 +185,7 @@
   "pk": 30,
   "fields": {
     "question": 5,
-    "choice_text": "MERN (MongoDB, Express.js, React, Node.js)",
-    "votes": 1
+    "choice_text": "MERN (MongoDB, Express.js, React, Node.js)"
   }
 },
 {
@@ -211,8 +193,7 @@
   "pk": 31,
   "fields": {
     "question": 5,
-    "choice_text": "MEAN (MongoDB, Express.js, Angular, Node.js)",
-    "votes": 0
+    "choice_text": "MEAN (MongoDB, Express.js, Angular, Node.js)"
   }
 },
 {
@@ -220,8 +201,7 @@
   "pk": 32,
   "fields": {
     "question": 5,
-    "choice_text": "LAMP (Linux, Apache, MySQL, PHP/Python/Perl)",
-    "votes": 0
+    "choice_text": "LAMP (Linux, Apache, MySQL, PHP/Python/Perl)"
   }
 },
 {
@@ -229,8 +209,7 @@
   "pk": 33,
   "fields": {
     "question": 5,
-    "choice_text": "Django (Python, Django framework)",
-    "votes": 0
+    "choice_text": "Django (Python, Django framework)"
   }
 },
 {
@@ -238,8 +217,47 @@
   "pk": 34,
   "fields": {
     "question": 5,
-    "choice_text": "Ruby on Rails (Ruby)",
-    "votes": 0
+    "choice_text": "Ruby on Rails (Ruby)"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 35,
+  "fields": {
+    "question": 1,
+    "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 36,
+  "fields": {
+    "question": 2,
+    "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 37,
+  "fields": {
+    "question": 3,
+    "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 38,
+  "fields": {
+    "question": 4,
+    "choice_text": "Other"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 39,
+  "fields": {
+    "question": 5,
+    "choice_text": "Other"
   }
 }
 ]
