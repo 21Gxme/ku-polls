@@ -3,13 +3,17 @@
 ```terminal
 git clone https://github.com/21Gxme/ku-polls.git
 ```
+2. Change directory to `ku-polls`
+```terminal
+cd ku-polls
+```
 
-2. Create virtual environment
+3. Create virtual environment
 ```terminal
 python -m venv venv
 ```
 
-3. Activate virtual environment
+4. Activate virtual environment
 
 ```terminal
 On MacOS or Linux:
@@ -20,12 +24,12 @@ On Windows:
 .venv\Scripts\activate
 ```
 
-4. Install required packages
+5. Install required packages
 ```terminal
 pip install -r requirements.txt
 ```
 
-5. Create a file named `.env` in the same directory as `manage.py`:
+6. Create a file named `.env` in the same directory as `manage.py`:
 ```terminal
 On Linux/MacOS:
 cp sample.env .env
@@ -35,23 +39,23 @@ On Windows:
 copy sample.env .env
 ```
 
-6. Run database migration
+7. Run database migration
 ```terminal
 python manage.py migrate
 ```
 
-7. Load initial data
+8. Load initial data
 ```terminal
-python manage.py loaddata data/polls.json 
+python manage.py loaddata data/polls-no-vote.json 
 python manage.py loaddata data/users.json
 ```
 
-8. Run test
+9. Run test
 ```terminal
 python manage.py test polls
 ```
 
-9. Run server
+10. Run server
 ```terminal
 python manage.py runserver
 ```
