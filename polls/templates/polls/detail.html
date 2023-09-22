@@ -47,7 +47,11 @@
                     <a class="login" href="{% url 'login' %}"> Log in</a><br/>
                 {% endif %}
         <div class="error-vote" id="error">
-            {% if error_message %}<p style="color: #952323"><strong>{{ error_message }}</strong></p>{% endif %}
+            {% for message in messages %}
+                {% if message.tags == "error" %}
+                    <p style="color: #952323">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
         </div>
     </form>
 </body>

@@ -1,16 +1,47 @@
-<html>
-<head>Please login</head>
+{% load static %}
+{% block content %}
+<head>
+    <title>Log In</title>
+    <link rel="stylesheet" href="{% static 'polls/login.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        #lockIcon {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("passwordInput");
+            var lockIcon = document.getElementById("lockIcon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                lockIcon.className = 'bx bxs-lock-open-alt';
+            } else {
+                passwordInput.type = "password";
+                lockIcon.className = 'bx bxs-lock-alt';
+            }
+        }
+    </script>
+</head>
 <body>
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <p>
-        <button type="submit">Login</button>
-    </p>
-    <input type="hidden" name="next" value="{{ next }}"/>
-</form>
-{# If you have a sign-up page, then add a link here #}
-</form>
+<div class="wrapper">
+    <form method="POST" class="custom-form">
+        {% csrf_token %}
+        <h1>Login</h1>
+
+        <div class="input-box">
+            <input type="text" name="username" placeholder="Username" required>
+            <i class='bx bxs-user'></i>
+        </div>
+
+        <div class="input-box">
+            <input type="password" id="passwordInput" name="password" placeholder="Password" required>
+            <i id="lockIcon" class='bx bxs-lock-alt' onclick="togglePasswordVisibility()"></i>
+        </div>
+        <button type="submit" class="btn">Login</button>
+    </form>
+</div>
 </body>
-</html>
+
+{% endblock %}
