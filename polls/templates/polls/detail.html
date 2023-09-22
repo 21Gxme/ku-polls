@@ -29,23 +29,22 @@
             <legend><h1 class="detail">{{ question.question_text }}</h1></legend>
             {% for choice in question.choice_set.all %}
                 <div class="choice">
-                    {% if user_vote and choice.id == user_vote.id %}
-                            <input type="radio" checked="true" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-                          {% else %}
-                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-                          {% endif %}
-                <label for="choice{{ choice.id }}">{{ choice.choice_text }}</label><br>
+                    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" {% if user_vote and choice.id == user_vote.id %}checked="true"{% endif %}>
+                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
                 </div>
             {% endfor %}
         </fieldset>
+        <div class="button-group">
         <input type="submit" value="Vote" class="button-vote">
-        <a href="{% url 'polls:index' %}"><button type="button" class="button-vote">Back</button></a><br/>
-                    {% if user.is_authenticated %}
-                    <p class="welcome">Welcome back, {{ user.username.title }}</p><br/>
-                    <a class="login" href="{% url 'logout' %}">Log out</a><br/>
-                {% else %}
-                    <a class="login" href="{% url 'login' %}"> Log in</a><br/>
-                {% endif %}
+        <a href="{% url 'polls:index' %}"><button type="button" class="button-vote">Back</button></a>
+            <a href="{% url 'polls:results' question.id %}"><button type="button" class="button-vote">Results</button></a>
+        </div>
+        {% if user.is_authenticated %}
+        <p class="welcome">Welcome back, {{ user.username.title }}</p><br/>
+        <a class="login" href="{% url 'logout' %}">Log out</a><br/>
+        {% else %}
+        <a class="login" href="{% url 'login' %}"> Log in</a><br/>
+        {% endif %}
         <div class="error-vote" id="error">
             {% for message in messages %}
                 {% if message.tags == "error" %}
