@@ -41,7 +41,7 @@ deactivate
 
 1. Activate virtual environment
 ```terminal
-.venv\Scripts\activate
+.venv\Scripts\activate.bat
 ```
 
 2. Start the Django development server
