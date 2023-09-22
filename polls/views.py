@@ -88,7 +88,7 @@ class ResultsView(generic.DetailView):
         question = get_object_or_404(Question, pk=kwargs["pk"])
         is_future_question = not question.can_vote()
         if is_future_question:
-            messages.error(request, f"That poll is not available to vote.")
+            messages.error(request, "That poll is not available to vote.")
         return render(request, self.template_name, {"question": question,
                                                     "is_future_question":
                                                         is_future_question})
@@ -110,6 +110,7 @@ def vote(request, question_id):
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
+        messages.error(request, "Please select a choice!")
         return redirect("polls:detail", pk=question.id)
     this_user = request.user
     """if the user has a vote for this question, update the vote for

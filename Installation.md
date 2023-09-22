@@ -15,14 +15,14 @@ python -m venv venv
 
 4. Activate virtual environment
 
-```terminal
-On MacOS or Linux:
-. venv/bin/activate
-```
-```terminal
-On Windows:
-.venv\Scripts\activate
-```
+   On MacOS or Linux:
+   ```terminal
+   . venv/bin/activate
+   ```
+   On Windows:
+   ```terminal
+   .venv\Scripts\activate
+   ```
 
 5. Install required packages
 ```terminal
