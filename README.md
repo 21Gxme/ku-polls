@@ -20,41 +20,47 @@ Check from [Install and Configure](Installation.md)
 #### On MacOS or Linux:
 
 1. Activate virtual environment
-```terminal
-. venv/bin/activate
-```
+    ```terminal
+    . venv/bin/activate
+    ```
 
 2. Start the Django development server
-```terminal
-python manage.py runserver
-```
+    ```terminal
+    python manage.py runserver
+    ```
 3. Open the web browser and go to http://localhost:8000
 
 4. To stop the server, press `Ctrl + C`
 
 5. To deactivate virtual environment
-```terminal
-deactivate
-```
+    ```terminal
+    deactivate
+    ```
 
 #### On Windows:
 
 1. Activate virtual environment
-```terminal
-.venv\Scripts\activate.bat
-```
+
+    (If you are using PowerShell use this command)
+    ```terminal
+    venv\Scripts\activate
+    ```
+   (If you are using Command Prompt use this command)
+    ```terminal
+    venv\Scripts\activate.bat
+    ```
 
 2. Start the Django development server
-```terminal
-python manage.py runserver
-```
+    ```terminal
+    python manage.py runserver
+    ```
 
 3. Open the web browser and go to http://localhost:8000
 4. To stop the server, press `Ctrl + C`
 5. To deactivate virtual environment
-```terminal
-deactivate
-```
+    ```terminal
+    deactivate
+    ```
 
 ## Demo Admin Account
 | Username | Password |
